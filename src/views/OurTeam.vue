@@ -1,196 +1,63 @@
 <template>
   <div class="our-team">
     <div class="container">
-      <h1>Our Team</h1>
+      <h1>Манай баг</h1>
       <p class="page-intro">
         Meet the dedicated professionals who drive our success. Our diverse team brings together 
         years of experience, innovative thinking, and a shared commitment to excellence.
       </p>
 
       <div class="leadership-section">
-        <h2>Leadership Team</h2>
         <div class="team-grid">
           <div class="team-member">
             <div class="member-photo">
-              <div class="placeholder-photo">👨‍💼</div>
+              <img src="/img/ariun.png" alt="Dr.Ариунболор Пүрвээ" class="member-image">
             </div>
             <div class="member-info">
-              <h3>Dr. Michael Johnson</h3>
-              <p class="member-title">Chief Executive Officer</p>
+              <h3>Dr.Ариунболор Пүрвээ</h3>
+              <p class="member-title"></p>
               <p class="member-description">
-                With over 20 years of experience in strategic consulting and business transformation, 
-                Dr. Johnson leads MASN's vision and strategic direction.
+                МУ-ын зөвлөх инженер, Техникийн ухааны доктор, 
+                Уул уурхйн цахилгаан механик тоног төхөөрөмжийн инженер, үл задлах аргын мэргэжилтэн
               </p>
               <div class="member-expertise">
-                <span class="expertise-tag">Strategic Planning</span>
-                <span class="expertise-tag">Business Transformation</span>
-                <span class="expertise-tag">Leadership Development</span>
               </div>
             </div>
           </div>
 
           <div class="team-member">
             <div class="member-photo">
-              <div class="placeholder-photo">👩‍💼</div>
+              <img src="/img/bold.png" alt="Болд Энхболд" class="member-image">
             </div>
             <div class="member-info">
-              <h3>Sarah Chen</h3>
-              <p class="member-title">Chief Technology Officer</p>
+              <h3>Болд Энхболд </h3>
+              <p class="member-title"></p>
               <p class="member-description">
-                A technology visionary with expertise in digital transformation and innovation, 
-                Sarah drives our technological advancement and product development initiatives.
+                МУ-ын зөвлөх инженер, Техникийн ухааны доктор, 
+                Уул уурхйн цахилгаан механик тоног төхөөрөмжийн инженер, үл задлах аргын мэргэжилтэн
               </p>
               <div class="member-expertise">
-                <span class="expertise-tag">Digital Transformation</span>
-                <span class="expertise-tag">Innovation Strategy</span>
-                <span class="expertise-tag">Technology Leadership</span>
               </div>
             </div>
           </div>
 
           <div class="team-member">
             <div class="member-photo">
-              <div class="placeholder-photo">👨‍🔬</div>
+              <img src="/img/nikita.png" alt="Никита Абрамов" class="member-image">
             </div>
             <div class="member-info">
-              <h3>Prof. David Rodriguez</h3>
-              <p class="member-title">Chief Innovation Officer</p>
+              <h3>Никита Абрамов</h3>
+              <p class="member-title"></p>
               <p class="member-description">
-                An industry expert in research and development, Prof. Rodriguez leads our 
-                innovation initiatives and ensures we stay at the forefront of technological advancement.
+                Техникийн ухааны магистр,
+                Өндөр хүчдэлий инженер,
+                автоматжуулалтын мэргэжилтэн
               </p>
               <div class="member-expertise">
-                <span class="expertise-tag">Research & Development</span>
-                <span class="expertise-tag">Innovation Management</span>
-                <span class="expertise-tag">Technical Excellence</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="departments-section">
-        <h2>Our Departments</h2>
-        
-        <div class="department">
-          <h3>Consulting Team</h3>
-          <p class="department-description">
-            Our consulting experts work closely with clients to understand their unique challenges 
-            and develop tailored solutions that drive measurable results.
-          </p>
-          <div class="department-members">
-            <div class="department-member">
-              <h4>Emily Watson</h4>
-              <p>Senior Consultant - Operations Excellence</p>
-            </div>
-            <div class="department-member">
-              <h4>James Park</h4>
-              <p>Principal Consultant - Digital Strategy</p>
-            </div>
-            <div class="department-member">
-              <h4>Maria Garcia</h4>
-              <p>Consultant - Organizational Development</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="department">
-          <h3>Training & Development</h3>
-          <p class="department-description">
-            Our training specialists design and deliver world-class programs that enhance skills, 
-            knowledge, and capabilities across all organizational levels.
-          </p>
-          <div class="department-members">
-            <div class="department-member">
-              <h4>Dr. Robert Kim</h4>
-              <p>Training Director - Leadership Programs</p>
-            </div>
-            <div class="department-member">
-              <h4>Lisa Thompson</h4>
-              <p>Senior Trainer - Technical Skills</p>
-            </div>
-            <div class="department-member">
-              <h4>Ahmed Hassan</h4>
-              <p>Training Coordinator - Corporate Programs</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="department">
-          <h3>Technical Solutions</h3>
-          <p class="department-description">
-            Our technical team ensures seamless implementation and maintenance of our 
-            devices and technology solutions, providing ongoing support and optimization.
-          </p>
-          <div class="department-members">
-            <div class="department-member">
-              <h4>Alex Turner</h4>
-              <p>Lead Engineer - System Integration</p>
-            </div>
-            <div class="department-member">
-              <h4>Priya Patel</h4>
-              <p>Solutions Architect - Data Analytics</p>
-            </div>
-            <div class="department-member">
-              <h4>Marco Silva</h4>
-              <p>Technical Support Manager</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="department">
-          <h3>Research & Innovation</h3>
-          <p class="department-description">
-            Our research team continuously explores new technologies and methodologies to 
-            keep MASN at the cutting edge of industry developments.
-          </p>
-          <div class="department-members">
-            <div class="department-member">
-              <h4>Dr. Jennifer Lee</h4>
-              <p>Research Scientist - AI & Machine Learning</p>
-            </div>
-            <div class="department-member">
-              <h4>Thomas Brown</h4>
-              <p>Innovation Analyst - Emerging Technologies</p>
-            </div>
-            <div class="department-member">
-              <h4>Nina Kowalski</h4>
-              <p>Research Coordinator - Market Trends</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="team-values">
-        <h2>Our Values</h2>
-        <div class="values-grid">
-          <div class="value">
-            <div class="value-icon">🎯</div>
-            <h3>Excellence</h3>
-            <p>We strive for excellence in everything we do, continuously raising the bar for quality and performance.</p>
-          </div>
-          <div class="value">
-            <div class="value-icon">🤝</div>
-            <h3>Collaboration</h3>
-            <p>We believe in the power of teamwork and foster a collaborative environment that brings out the best in everyone.</p>
-          </div>
-          <div class="value">
-            <div class="value-icon">💡</div>
-            <h3>Innovation</h3>
-            <p>We embrace innovation and continuously seek new ways to solve problems and create value for our clients.</p>
-          </div>
-          <div class="value">
-            <div class="value-icon">🌱</div>
-            <h3>Growth</h3>
-            <p>We are committed to continuous learning and growth, both for our team members and our organization.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="join-team-cta">
-        <h2>Join Our Team</h2>
-        <p>We're always looking for talented individuals who share our passion for excellence and innovation.</p>
-        <router-link to="/contact" class="cta-button">Explore Opportunities</router-link>
       </div>
     </div>
   </div>
@@ -267,6 +134,15 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
+  overflow: hidden;
+  border: 3px solid #667eea;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .placeholder-photo {

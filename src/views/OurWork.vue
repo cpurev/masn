@@ -1,107 +1,102 @@
 <template>
   <div class="our-work">
     <div class="container">
-      <h1>Our Work</h1>
+      <h1>Гүйцэтгэсэн ажлууд, төслүүд</h1>
       <p class="page-intro">
-        Explore our portfolio of successful projects and case studies that demonstrate our expertise 
-        and the value we deliver to our clients across various industries.
+        Манай багийн гүйцэтгэсэн техник инженерийн төслүүд, судалгааны ажлууд болон 
+        үйлчлүүлэгчдэдээ хүргэсэн үр дүнгүүдтэй танилцаарай.
       </p>
 
       <div class="project-categories">
-        <h2>Featured Projects</h2>
+        <h2>Гол төслүүд</h2>
         
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">📊</div>
-            </div>
-            <div class="project-content">
-              <h3>Digital Transformation Initiative</h3>
-              <p class="project-client">Fortune 500 Manufacturing Company</p>
-              <p class="project-description">
-                Led a comprehensive digital transformation that resulted in 40% improvement in operational efficiency 
-                and $2M annual cost savings through process automation and data analytics implementation.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Digital Transformation</span>
-                <span class="tag">Process Optimization</span>
-                <span class="tag">Data Analytics</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">🎯</div>
-            </div>
-            <div class="project-content">
-              <h3>Strategic Market Expansion</h3>
-              <p class="project-client">Technology Startup</p>
-              <p class="project-description">
-                Developed and executed market entry strategy for European expansion, resulting in successful 
-                launch in 5 countries and 300% revenue growth within 18 months.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Market Strategy</span>
-                <span class="tag">Business Development</span>
-                <span class="tag">International Expansion</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">👥</div>
-            </div>
-            <div class="project-content">
-              <h3>Leadership Development Program</h3>
-              <p class="project-client">Healthcare Organization</p>
-              <p class="project-description">
-                Designed and delivered a comprehensive leadership development program for 200+ managers, 
-                improving employee engagement by 35% and reducing turnover by 25%.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Leadership Training</span>
-                <span class="tag">Organizational Development</span>
-                <span class="tag">Change Management</span>
-              </div>
-            </div>
-          </div>
-
           <div class="project-card">
             <div class="project-image">
               <div class="placeholder-image">⚙️</div>
             </div>
             <div class="project-content">
-              <h3>Supply Chain Optimization</h3>
-              <p class="project-client">Global Retail Chain</p>
+              <h3>Эргэлдэх тоног төхөөрөмжийн үл задлах аргын нутагшуулах судалгаа</h3>
               <p class="project-description">
-                Redesigned supply chain operations resulting in 30% reduction in inventory costs, 
-                improved delivery times by 50%, and enhanced customer satisfaction scores.
+                Эргэлдэх тоног төхөөрөмжийн техникийн байдлыг үл задлах аргаар шинжлэх 
+                технологийг нутагшуулах чиглэлийн судалгаа хийсэн.
               </p>
               <div class="project-tags">
-                <span class="tag">Supply Chain</span>
-                <span class="tag">Operations</span>
-                <span class="tag">Cost Optimization</span>
+                <span class="tag">Үл задлах шинжилгээ</span>
+                <span class="tag">Эргэлдэх тоног төхөөрөмж</span>
+                <span class="tag">Судалгаа</span>
               </div>
             </div>
           </div>
 
           <div class="project-card">
             <div class="project-image">
-              <div class="placeholder-image">💡</div>
+              <div class="placeholder-image">⚡</div>
             </div>
             <div class="project-content">
-              <h3>Innovation Workshop Series</h3>
-              <p class="project-client">Financial Services Firm</p>
+              <h3>Налайхын гангийн үйлдвэрийн цахилгаан эрчим хүчний чанарын судалгаа</h3>
               <p class="project-description">
-                Facilitated innovation workshops that generated 50+ new product ideas, leading to the 
-                development of 3 breakthrough services that captured new market segments.
+                Үйлдвэрийн цахилгаан эрчим хүчний чанарыг дээшлүүлэх зорилгоор 
+                дэлгэрэнгүй техникийн судалгаа хийж гүйцэтгэсэн.
               </p>
               <div class="project-tags">
-                <span class="tag">Innovation</span>
-                <span class="tag">Product Development</span>
-                <span class="tag">Workshop Facilitation</span>
+                <span class="tag">Цахилгаан эрчим хүч</span>
+                <span class="tag">Чанарын судалгаа</span>
+                <span class="tag">Гангийн үйлдвэр</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">💧</div>
+            </div>
+            <div class="project-content">
+              <h3>Эрдэнэт үйлдвэрийн ус хангамжийн цехийн эрчим хүчний аудит</h3>
+              <p class="project-description">
+                Ус хангамжийн цехийн цахилгаан эрчим хүчний хэрэглээний 
+                үр ашгийг нэмэгдүүлэх аудитын ажил хийсэн.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Эрчим хүчний аудит</span>
+                <span class="tag">Ус хангамж</span>
+                <span class="tag">Үр ашиг</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">🔧</div>
+            </div>
+            <div class="project-content">
+              <h3>Үйлдвэрлэлийн цахилгаан хөдөлгүүдийн роторын гэмтлийг үл задлах аргын оношилгоо</h3>
+              <p class="project-description">
+                Цахилгаан хөдөлгүүдийн роторын гэмтлийг үл задлах аргаар 
+                оношлох технологи хэрэглэсэн.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Хөдөлгүүр оношилгоо</span>
+                <span class="tag">Роторын гэмтэл</span>
+                <span class="tag">Үл задлах арга</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">📊</div>
+            </div>
+            <div class="project-content">
+              <h3>Баяжуулах үйлдвэрийн цахилгаан хөдөлгүүрийн доргионы ба халалтын спектр шинжилгээ</h3>
+              <p class="project-description">
+                Цахилгаан хөдөлгүүрийн доргион болон халалтын спектрийг шинжлэн 
+                техникийн байдлыг үнэлэх ажил хийсэн.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Спектр шинжилгээ</span>
+                <span class="tag">Доргионы шинжилгээ</span>
+                <span class="tag">Халалтын шинжилгээ</span>
               </div>
             </div>
           </div>
@@ -111,74 +106,58 @@
               <div class="placeholder-image">📈</div>
             </div>
             <div class="project-content">
-              <h3>Performance Management System</h3>
-              <p class="project-client">Educational Institution</p>
+              <h3>Цахилгаан эрчим хүчний үр ашгийг нэмэгдүүлэх судалгаа</h3>
               <p class="project-description">
-                Implemented a comprehensive performance management system that improved academic outcomes 
-                by 20% and enhanced faculty satisfaction through better goal alignment and feedback mechanisms.
+                Эрчим хүчний хэрэглээг оновчтой болгож, үр ашгийг дээшлүүлэх 
+                арга замуудыг судалсан.
               </p>
               <div class="project-tags">
-                <span class="tag">Performance Management</span>
-                <span class="tag">Education</span>
-                <span class="tag">System Implementation</span>
+                <span class="tag">Үр ашиг</span>
+                <span class="tag">Эрчим хүчний хэмнэлт</span>
+                <span class="tag">Оновчтой хэрэглээ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">🔍</div>
+            </div>
+            <div class="project-content">
+              <h3>Асинхрон хөдөлгүүрийн үл задлах аргын оношилгоо</h3>
+              <p class="project-description">
+                Асинхрон хөдөлгүүрүүдийн техникийн байдлыг үл задлах аргаар 
+                оношлох ажлыг гүйцэтгэсэн.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Асинхрон хөдөлгүүр</span>
+                <span class="tag">Үл задлах оношилгоо</span>
+                <span class="tag">Техникийн үзлэг</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">🏗️</div>
+            </div>
+            <div class="project-content">
+              <h3>Бие даасан цахилгаан, дулааны эх үүсгүүрийн зураг төсөл, угсралт</h3>
+              <p class="project-description">
+                Бие даасан цахилгаан болон дулааны эх үүсгүүрийн зураг төсөл 
+                боловсруулж, угсралтын ажлыг хийсэн.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Зураг төсөл</span>
+                <span class="tag">Угсралт</span>
+                <span class="tag">Эх үүсгүүр</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="case-study-highlight">
-        <h2>Case Study Spotlight</h2>
-        <div class="case-study">
-          <div class="case-study-content">
-            <h3>Manufacturing Excellence Initiative</h3>
-            <p><strong>Challenge:</strong> A mid-size manufacturing company was facing declining productivity, 
-            increasing costs, and quality issues that threatened their market position.</p>
-            
-            <p><strong>Solution:</strong> Our team conducted a comprehensive analysis and implemented a 
-            multi-phase improvement program including lean manufacturing principles, technology upgrades, 
-            and workforce training.</p>
-            
-            <p><strong>Results:</strong></p>
-            <ul>
-              <li>45% increase in production efficiency</li>
-              <li>60% reduction in defect rates</li>
-              <li>$3.2M annual cost savings</li>
-              <li>25% improvement in employee satisfaction</li>
-              <li>New quality certification achieved</li>
-            </ul>
-            
-            <div class="case-study-quote">
-              <blockquote>
-                "MASN's expertise and methodical approach transformed our operations. The results exceeded 
-                our expectations and positioned us for sustainable growth."
-              </blockquote>
-              <cite>- Manufacturing Director</cite>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="industries-served">
-        <h2>Industries We Serve</h2>
-        <div class="industries-grid">
-          <div class="industry">Manufacturing</div>
-          <div class="industry">Healthcare</div>
-          <div class="industry">Technology</div>
-          <div class="industry">Financial Services</div>
-          <div class="industry">Education</div>
-          <div class="industry">Retail</div>
-          <div class="industry">Energy</div>
-          <div class="industry">Government</div>
-        </div>
-      </div>
-
-      <div class="work-cta">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Let's discuss how we can help you achieve similar results for your organization.</p>
-        <router-link to="/contact" class="cta-button">Start Your Project</router-link>
-      </div>
-    </div>
+</div>
   </div>
 </template>
 

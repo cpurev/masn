@@ -1,26 +1,21 @@
 <template>
   <div class="py-16 min-h-screen">
     <div class="container-custom">
-      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-800">Contact Us</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-800">Холбоо барих</h1>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Get in Touch</h2>
-            <p class="text-gray-600 text-lg">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-          </div>
-          
+        <div class="space-y-8">          
           <div class="space-y-6">
-            <div class="space-y-2">
+            <!-- <div class="space-y-2">
               <h3 class="text-lg font-semibold text-blue-600">Address</h3>
               <p class="text-gray-600">123 Business Street<br>City, State 12345</p>
+            </div> -->
+            <div class="space-y-2">
+              <h3 class="text-lg font-semibold text-blue-600">Утас</h3>
+              <p class="text-gray-600">+976 91110666</p>
             </div>
             <div class="space-y-2">
-              <h3 class="text-lg font-semibold text-blue-600">Phone</h3>
-              <p class="text-gray-600">+1 (555) 123-4567</p>
-            </div>
-            <div class="space-y-2">
-              <h3 class="text-lg font-semibold text-blue-600">Email</h3>
-              <p class="text-gray-600">info@masn.com</p>
+              <h3 class="text-lg font-semibold text-blue-600">Емайл</h3>
+              <p class="text-gray-600">masnmongolia@gmail.com</p>
             </div>
           </div>
         </div>

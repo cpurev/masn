@@ -1,11 +1,35 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-24 text-center">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-5xl lg:text-6xl font-bold mb-6">Welcome to MASN</h1>
-          <p class="text-xl lg:text-2xl opacity-90 max-w-2xl mx-auto">Your trusted partner in professional services</p>
+    <section class="hero-section py-24 relative overflow-hidden">
+      
+      <div class="container-custom relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <!-- Main title area -->
+          <div class="text-center mb-16">
+            <h1 class="text-6xl lg:text-7xl font-light text-gray-900 mb-4 tracking-tight">MASN</h1>
+            <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">Mongolian Advanced Solutions Network</p>
+          </div>
+          
+          <!-- Services grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-gray-200">
+            <div class="text-center">
+              <div class="text-blue-600 font-semibold text-sm mb-2">CMD</div>
+              <div class="text-gray-600 text-sm leading-relaxed">Condition Monitoring & Diagnostics</div>
+            </div>
+            <div class="text-center">
+              <div class="text-blue-600 font-semibold text-sm mb-2">PdM</div>
+              <div class="text-gray-600 text-sm leading-relaxed">Predictive Maintenance</div>
+            </div>
+            <div class="text-center">
+              <div class="text-blue-600 font-semibold text-sm mb-2">IA</div>
+              <div class="text-gray-600 text-sm leading-relaxed">Industrial Automation</div>
+            </div>
+            <div class="text-center">
+              <div class="text-blue-600 font-semibold text-sm mb-2">HVE</div>
+              <div class="text-gray-600 text-sm leading-relaxed">High Voltage Engineering</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -13,17 +37,13 @@
     <!-- Introduction Section -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <h2 class="text-4xl lg:text-5xl font-bold text-center mb-8 text-gray-800">Introduction</h2>
-        <div class="max-w-4xl mx-auto space-y-6">
-          <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
-            MASN is a leading organization dedicated to providing exceptional services across multiple domains. 
-            With our expertise in training, consultancy, and cutting-edge solutions, we help businesses and 
-            individuals achieve their goals through innovative approaches and professional excellence.
-          </p>
-          <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
-            Our team of experts brings years of experience and a commitment to delivering results that exceed 
-            expectations. Whether you're looking for specialized training, expert consultancy, or advanced 
-            devices and solutions, MASN is here to support your journey to success.
+        <h2 class="text-3xl lg:text-4xl font-light text-center mb-12 text-gray-800">МАСН ХХК</h2>
+        <div class="max-w-4xl mx-auto">
+          <p class="text-lg text-gray-600 leading-relaxed text-center">
+            Манай компани эргэлдэх цахилгаан тоног төхөөрөмжийн үл задлах аргын оношлогоо, 
+            цахилгаан эрчим хүчний чанарын үнэлгээ, сэргээгдэх эрчим хүч, бие даасан дулааны эх үүсгүүр, 
+            автоматжуулалтын шийдэл, мэргэжлийн болон зэргийн бус сургалтын чиглэлээр тогтвортой, идэвхтэй 
+            үйл ажиллагаа явуулж байна.
           </p>
         </div>
       </div>
@@ -32,23 +52,23 @@
     <!-- Quick Services Overview -->
     <section class="py-20">
       <div class="container-custom">
-        <h2 class="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-800">What We Offer</h2>
+        <h2 class="text-3xl lg:text-4xl font-light text-center mb-16 text-gray-800">What We Offer</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="card p-8 text-center group">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Services</h3>
-            <p class="text-gray-600">Comprehensive professional services tailored to your needs</p>
+            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Services</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Comprehensive professional services tailored to your needs</p>
           </div>
           <div class="card p-8 text-center group">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Training</h3>
-            <p class="text-gray-600">Expert-led training programs to enhance skills and knowledge</p>
+            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Training</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Expert-led training programs to enhance skills and knowledge</p>
           </div>
           <div class="card p-8 text-center group">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Consultancy</h3>
-            <p class="text-gray-600">Strategic consulting to drive your business forward</p>
+            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Consultancy</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Strategic consulting to drive your business forward</p>
           </div>
           <div class="card p-8 text-center group">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Our Devices</h3>
-            <p class="text-gray-600">State-of-the-art equipment and technology solutions</p>
+            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Our Devices</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">State-of-the-art equipment and technology solutions</p>
           </div>
         </div>
       </div>
@@ -61,6 +81,10 @@
 </script>
 
 <style scoped>
+.hero-section {
+  background-color: #fefce8;
+}
+
 .home {
   min-height: 100vh;
 }

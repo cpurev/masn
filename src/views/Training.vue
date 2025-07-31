@@ -1,162 +1,246 @@
 <template>
   <div class="py-16 min-h-screen">
     <div class="container-custom">
-      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">Training Programs</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">Сургалт</h1>
       <p class="text-center max-w-4xl mx-auto mb-16 text-lg lg:text-xl text-gray-600">
-        Enhance your skills and knowledge with our comprehensive training programs designed by industry experts.
-        Whether you're looking to upskill your team or advance your personal career, we have the right program for you.
+        Мэргэжлийн чадварыг нэмэгдүүлж, шинэ технологийг эзэмшихэд тусламж үзүүлэх цогц сургалтын хөтөлбөрүүдээр таныг хангана. 
+        Манай сургалтууд нь практик туршлага болон онолын мэдлэгийг хослуулсан байдаг.
       </p>
 
-      <div class="space-y-16 mb-16">
-        <div>
-          <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-primary-500 pb-2">Professional Development</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="card p-6">
-              <h3 class="text-xl font-semibold mb-3 text-gray-800">Leadership Excellence</h3>
-              <div class="flex gap-4 mb-4">
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">2 Days</span>
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
-              </div>
-              <p class="text-gray-600 mb-4 leading-relaxed">Develop essential leadership skills and learn to inspire and motivate your team effectively.</p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Team management strategies</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Communication skills</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Decision-making frameworks</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Conflict resolution</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="card p-6">
-              <h3 class="text-xl font-semibold mb-3 text-gray-800">Project Management Certification</h3>
-              <div class="flex gap-4 mb-4">
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">5 Days</span>
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
-              </div>
-              <p class="text-gray-600 mb-4 leading-relaxed">Master project management methodologies and earn industry-recognized certification.</p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Agile and Scrum frameworks</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Risk management</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Resource planning</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Quality assurance</span>
-                </li>
-              </ul>
-            </div>
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Бидний Санал Болгож Буй Сургалтууд</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Non-destructive Testing -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">🔬</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              Үл задлах аргын оношилгооны чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Материалыг гэмтээхгүйгээр доторх алдаа, хэмжээсийг илрүүлэх орчин үеийн арга техникүүдийг эзэмшинэ.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Ультра авианы шинжилгээ</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Рентген туяаны шинжилгээ</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Соронзон хүчний шинжилгээ</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Үр дүн шинжлэх аргазүй</span>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <div>
-          <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-primary-500 pb-2">Technical Skills</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="card p-6">
-              <h3 class="text-xl font-semibold mb-3 text-gray-800">Data Analysis & Visualization</h3>
-              <div class="flex gap-4 mb-4">
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">3 Days</span>
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-              </div>
-              <p class="text-gray-600 mb-4 leading-relaxed">Learn to analyze complex data sets and create compelling visualizations for business insights.</p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Statistical analysis</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Dashboard creation</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Data interpretation</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Reporting techniques</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="card p-6">
-              <h3 class="text-xl font-semibold mb-3 text-gray-800">Digital Marketing Mastery</h3>
-              <div class="flex gap-4 mb-4">
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">4 Days</span>
-                <span class="bg-primary-100 text-primary-500 px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
-              </div>
-              <p class="text-gray-600 mb-4 leading-relaxed">Master digital marketing strategies and tools to drive business growth in the digital age.</p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">SEO optimization</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Social media marketing</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Content strategy</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary-500 font-bold">•</span>
-                  <span class="text-gray-600 text-sm">Analytics & metrics</span>
-                </li>
-              </ul>
-            </div>
+          <!-- ABB ACD880-1 Frequency Converter -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">⚡</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              АББ АCD880-1 давтамж хувиргагчийн чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              ABB компанийн ACD880-1 давтамж хувиргагчийг суурилуулах, тохируулах, засвар үйлчилгээ хийх дүрмүүдийг судална.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Суурилуулалт болон холболт</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Программчлал болон тохируулга</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Алдаа олох болон засвар</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Үйлдвэрлэлийн оновчтой ашиглалт</span>
+              </li>
+            </ul>
           </div>
+
+          <!-- MATLAB Programming -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">💻</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              МАТЛАБ программчлал, динамик загварчлал боловсруулах чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              MATLAB орчинд программ бичих, математик загвар бүтээх, инженерийн бодлого шийдвэрлэх арга техникүүдийг эзэмшинэ.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">MATLAB программчлалын үндэс</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Динамик системийн загварчлал</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Simulink ашиглах арга техник</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Өгөгдөл боловсруулалт</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Microcontroller Programming -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">🔧</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              Микроконтроллёр программ бичих хөгжүүлэх чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Микроконтроллёрт зориулсан программ хангамж хөгжүүлэх, хардвэр хяналтын системүүд бүтээх арга барилыг судална.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">C/C++ программчлал</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Arduino болон ESP32 платформ</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Мэдрэгч болон гүйцэтгэгч холбох</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Утасгүй харилцаа холбоо</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PLC Programming -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">🏭</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              ПЛС программ бичих хөгжүүлэх чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Үйлдвэрлэлийн автоматжуулалтад ашиглагддаг PLC системүүдийг программчлах, тохируулах, засвар үйлчилгээ хийх арга техникүүд.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Ladder Logic программчлал</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">HMI интерфэйс хөгжүүлэх</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">SCADA системтэй холбох</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Алдаа олох болон засвар</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- AutoCAD Training -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">📐</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              AutoCAD зураг төслийн программ эзэмших, хөгжүүлэх чадамж олгох сургалт
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              AutoCAD программыг ашиглан техникийн зураг төсөл боловсруулах, 2D болон 3D загварчлал хийх арга техникүүдийг эзэмшинэ.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">2D зураг төсөл боловсруулалт</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">3D загварчлал техник</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Техникийн стандарт дагаж мөрдөх</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Хэвлэх болон хуваалцах</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Electrical Engineering Theory -->
+          <div class="card p-8 group">
+            <div class="text-5xl mb-6">⚡</div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+              Цахилгаан техникийн онолын сургалт (Англи, Монгол хэл)
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Цахилгаан инженерчлэлийн үндсэн онол, хэрэглээний асуудлыг англи болон монгол хэл дээр өргөн хүрээтэй судална.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Цахилгаан хэлхээний онол</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Эрчим хүчний систем</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Цахилгаан машины онол</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary-500 font-bold">▸</span>
+                <span class="text-gray-600">Мэргэжлийн терминологи</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
 
       <div class="bg-gray-50 rounded-xl p-12 mb-16">
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Why Choose Our Training?</h2>
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Яагаад Бидний Сургалтыг Сонгох Вэ?</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="text-center">
             <div class="text-4xl mb-4">🎓</div>
-            <h3 class="text-lg font-semibold mb-2 text-gray-800">Expert Instructors</h3>
-            <p class="text-gray-600">Learn from industry professionals with years of real-world experience.</p>
+            <h3 class="text-lg font-semibold mb-2 text-gray-800">Мэргэжлийн Багш Нар</h3>
+            <p class="text-gray-600">Олон жилийн туршлагатай мэргэжилтнүүдээс практик мэдлэг эзэмшинэ.</p>
           </div>
           <div class="text-center">
             <div class="text-4xl mb-4">📋</div>
-            <h3 class="text-lg font-semibold mb-2 text-gray-800">Hands-on Learning</h3>
-            <p class="text-gray-600">Practical exercises and real case studies to reinforce learning outcomes.</p>
+            <h3 class="text-lg font-semibold mb-2 text-gray-800">Практик Сургалт</h3>
+            <p class="text-gray-600">Практик дасгал, бодит жишээ ашиглан сургалтын үр дүнг нэмэгдүүлнэ.</p>
           </div>
           <div class="text-center">
             <div class="text-4xl mb-4">🏆</div>
-            <h3 class="text-lg font-semibold mb-2 text-gray-800">Certification</h3>
-            <p class="text-gray-600">Earn industry-recognized certificates upon successful completion.</p>
+            <h3 class="text-lg font-semibold mb-2 text-gray-800">Гэрчилгээ</h3>
+            <p class="text-gray-600">Амжилттай дуусгасан тохиолдолд салбарт хүлээн зөвшөөрөгдсөн гэрчилгээ олгоно.</p>
           </div>
           <div class="text-center">
             <div class="text-4xl mb-4">🤝</div>
-            <h3 class="text-lg font-semibold mb-2 text-gray-800">Ongoing Support</h3>
-            <p class="text-gray-600">Continued assistance and resources even after training completion.</p>
+            <h3 class="text-lg font-semibold mb-2 text-gray-800">Тасралтгүй Дэмжлэг</h3>
+            <p class="text-gray-600">Сургалт дууссаны дараа ч үргэлжлүүлэн туслалцаа үзүүлнэ.</p>
           </div>
         </div>
-      </div>
-
-      <div class="gradient-bg text-white rounded-xl p-12 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Ready to Enhance Your Skills?</h2>
-        <p class="text-xl mb-8 opacity-90">Contact us to learn more about our training programs and enrollment options.</p>
-        <router-link to="/contact" class="btn-secondary">Enroll Now</router-link>
       </div>
     </div>
   </div>

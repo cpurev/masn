@@ -1,141 +1,164 @@
 <template>
   <div class="our-devices">
     <div class="container">
-      <h1>Our Devices & Technology</h1>
-      <p class="page-intro">
-        Discover our state-of-the-art equipment and cutting-edge technology solutions that enable us to deliver 
-        exceptional results and maintain our position at the forefront of innovation.
-      </p>
+      <h1>БАГАЖУУД</h1>
+      <div class="mongolian-subheader">
+        <p>Гүйдэл, хүчдэл, эргэлдүүлэх цахилгаан соронзон момент, U, цахилгаан чанар, доргио чичиргээ</p>
+      </div>
 
       <div class="device-categories">
         <div class="category">
-          <h2>Measurement & Analysis Equipment</h2>
+          <h2>Electrical Measurement Equipment</h2>
+          <div class="devices-grid">
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">⚡</div>
+              </div>
+              <div class="device-content">
+                <h3>FLUKE 87V</h3>
+                <p class="device-model">Digital Multimeter</p>
+                <p class="device-description">
+                  Professional digital multimeter for electrical troubleshooting with advanced 
+                  measurement capabilities and industrial-grade durability.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>True RMS measurements</li>
+                    <li>High accuracy voltage/current testing</li>
+                    <li>Frequency and capacitance measurement</li>
+                    <li>Temperature measurement capability</li>
+                    <li>Industrial safety rating</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">🌡️</div>
+              </div>
+              <div class="device-content">
+                <h3>FLIR TG165</h3>
+                <p class="device-model">Thermal Imaging Camera</p>
+                <p class="device-description">
+                  Spot thermal imaging camera for electrical system diagnostics, 
+                  identifying hot spots and potential failures before they occur.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Thermal and visual imaging</li>
+                    <li>Hot spot detection</li>
+                    <li>Temperature measurement</li>
+                    <li>Compact and portable design</li>
+                    <li>LED flashlight integrated</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2>Insulation & Resistance Testing</h2>
+          <div class="devices-grid">
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">🔌</div>
+              </div>
+              <div class="device-content">
+                <h3>Megger DLRO 600</h3>
+                <p class="device-model">Digital Low Resistance Ohmmeter</p>
+                <p class="device-description">
+                  High-precision low resistance testing for contact resistance, 
+                  bond resistance, and continuity testing in electrical systems.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Micro-ohm resistance measurement</li>
+                    <li>High test current capability</li>
+                    <li>Digital display with data storage</li>
+                    <li>Automatic test current selection</li>
+                    <li>Safety compliance testing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">🔍</div>
+              </div>
+              <div class="device-content">
+                <h3>Megger MIT1025</h3>
+                <p class="device-model">Insulation & Continuity Tester</p>
+                <p class="device-description">
+                  Comprehensive insulation and continuity testing for electrical 
+                  installations, motors, and cable systems.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Insulation resistance testing</li>
+                    <li>Continuity measurement</li>
+                    <li>Voltage detection</li>
+                    <li>Test result storage</li>
+                    <li>Rugged field construction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">⚙️</div>
+              </div>
+              <div class="device-content">
+                <h3>Megger ROGA</h3>
+                <p class="device-model">Electrical Testing Equipment</p>
+                <p class="device-description">
+                  Advanced electrical testing solution for comprehensive 
+                  electrical system analysis and diagnostics.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Multi-function testing</li>
+                    <li>High accuracy measurements</li>
+                    <li>Data logging capability</li>
+                    <li>User-friendly interface</li>
+                    <li>Professional grade reliability</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2>Specialized Testing Equipment</h2>
           <div class="devices-grid">
             <div class="device-card">
               <div class="device-image">
                 <div class="placeholder-image">📊</div>
               </div>
               <div class="device-content">
-                <h3>Advanced Data Logger Series</h3>
-                <p class="device-model">Model: DL-3000X Pro</p>
+                <h3>PT-2048</h3>
+                <p class="device-model">Precision Testing Unit</p>
                 <p class="device-description">
-                  High-precision data logging system with multi-channel capability, real-time monitoring, 
-                  and cloud connectivity for comprehensive data analysis.
+                  Advanced precision testing equipment for specialized 
+                  electrical measurements and system diagnostics.
                 </p>
                 <div class="device-specs">
                   <h4>Key Features:</h4>
                   <ul>
-                    <li>32-channel simultaneous recording</li>
-                    <li>0.01% accuracy measurement</li>
-                    <li>Wireless data transmission</li>
-                    <li>24-month battery life</li>
-                    <li>Environmental IP67 rating</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="device-card">
-              <div class="device-image">
-                <div class="placeholder-image">🔬</div>
-              </div>
-              <div class="device-content">
-                <h3>Precision Analysis Station</h3>
-                <p class="device-model">Model: PAS-500 Elite</p>
-                <p class="device-description">
-                  Professional-grade analysis station for detailed material testing, quality control, 
-                  and research applications with automated reporting capabilities.
-                </p>
-                <div class="device-specs">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Automated sample handling</li>
-                    <li>Sub-micron precision</li>
-                    <li>Multiple analysis modes</li>
-                    <li>Integrated documentation</li>
-                    <li>AI-powered insights</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="category">
-          <h2>Communication & Monitoring Systems</h2>
-          <div class="devices-grid">
-            <div class="device-card">
-              <div class="device-image">
-                <div class="placeholder-image">📡</div>
-              </div>
-              <div class="device-content">
-                <h3>Smart Monitoring Hub</h3>
-                <p class="device-model">Model: SMH-200 Connect</p>
-                <p class="device-description">
-                  Centralized monitoring solution with real-time alerts, predictive analytics, 
-                  and seamless integration with existing infrastructure.
-                </p>
-                <div class="device-specs">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Real-time dashboard</li>
-                    <li>Predictive maintenance alerts</li>
-                    <li>Multi-protocol support</li>
-                    <li>Cloud-based analytics</li>
-                    <li>Mobile app integration</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="device-card">
-              <div class="device-image">
-                <div class="placeholder-image">🛡️</div>
-              </div>
-              <div class="device-content">
-                <h3>Security & Safety Module</h3>
-                <p class="device-model">Model: SSM-150 Guardian</p>
-                <p class="device-description">
-                  Comprehensive safety monitoring system with advanced threat detection, 
-                  emergency response protocols, and compliance reporting.
-                </p>
-                <div class="device-specs">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Multi-sensor integration</li>
-                    <li>Automated emergency response</li>
-                    <li>Compliance tracking</li>
-                    <li>Incident documentation</li>
-                    <li>Training simulation modes</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="category">
-          <h2>Specialized Equipment</h2>
-          <div class="devices-grid">
-            <div class="device-card">
-              <div class="device-image">
-                <div class="placeholder-image">⚙️</div>
-              </div>
-              <div class="device-content">
-                <h3>Calibration & Testing Unit</h3>
-                <p class="device-model">Model: CTU-800 Master</p>
-                <p class="device-description">
-                  Professional calibration equipment for maintaining accuracy and compliance 
-                  across all measurement and testing operations.
-                </p>
-                <div class="device-specs">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>NIST traceable standards</li>
-                    <li>Automated calibration cycles</li>
-                    <li>Certificate generation</li>
-                    <li>Drift analysis</li>
-                    <li>Uncertainty calculations</li>
+                    <li>High precision measurements</li>
+                    <li>Multi-parameter testing</li>
+                    <li>Digital data recording</li>
+                    <li>Automated test sequences</li>
+                    <li>Professional certification</li>
                   </ul>
                 </div>
               </div>
@@ -146,20 +169,116 @@
                 <div class="placeholder-image">🔧</div>
               </div>
               <div class="device-content">
-                <h3>Portable Diagnostic Kit</h3>
-                <p class="device-model">Model: PDK-400 Field</p>
+                <h3>KT8030</h3>
+                <p class="device-model">Electrical Testing System</p>
                 <p class="device-description">
-                  Compact, portable diagnostic solution for field operations with rugged design 
-                  and comprehensive testing capabilities.
+                  Comprehensive electrical testing system for industrial 
+                  applications and safety compliance verification.
                 </p>
                 <div class="device-specs">
                   <h4>Key Features:</h4>
                   <ul>
-                    <li>Ruggedized construction</li>
-                    <li>Battery-powered operation</li>
-                    <li>Quick diagnostic modes</li>
-                    <li>Data export capabilities</li>
-                    <li>Intuitive touch interface</li>
+                    <li>Multi-range testing capability</li>
+                    <li>Safety compliance verification</li>
+                    <li>Automated measurement cycles</li>
+                    <li>Data export functionality</li>
+                    <li>Portable design</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">⚡</div>
+              </div>
+              <div class="device-content">
+                <h3>MTO 330A</h3>
+                <p class="device-model">High Current Testing Equipment</p>
+                <p class="device-description">
+                  High current testing equipment for power system analysis 
+                  and electrical component verification.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>High current capability</li>
+                    <li>Power system testing</li>
+                    <li>Precision measurement</li>
+                    <li>Safety interlock systems</li>
+                    <li>Industrial grade construction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">🔍</div>
+              </div>
+              <div class="device-content">
+                <h3>АЙМ-90A</h3>
+                <p class="device-model">Electrical Measurement Device</p>
+                <p class="device-description">
+                  Professional electrical measurement device for comprehensive 
+                  electrical system analysis and quality control.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Multi-parameter measurement</li>
+                    <li>High accuracy testing</li>
+                    <li>Digital display interface</li>
+                    <li>Data storage capability</li>
+                    <li>Calibration certification</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">📈</div>
+              </div>
+              <div class="device-content">
+                <h3>Tan-Delta-Tester</h3>
+                <p class="device-model">Dielectric Testing Equipment</p>
+                <p class="device-description">
+                  Specialized dielectric testing equipment for insulation 
+                  quality assessment and electrical safety verification.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Dielectric loss measurement</li>
+                    <li>Insulation quality assessment</li>
+                    <li>High voltage testing capability</li>
+                    <li>Automated test procedures</li>
+                    <li>Safety compliance testing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-image">
+                <div class="placeholder-image">⚙️</div>
+              </div>
+              <div class="device-content">
+                <h3>Roga</h3>
+                <p class="device-model">Professional Testing Unit</p>
+                <p class="device-description">
+                  Professional-grade testing unit for comprehensive 
+                  electrical measurements and system diagnostics.
+                </p>
+                <div class="device-specs">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    <li>Comprehensive testing suite</li>
+                    <li>High precision measurements</li>
+                    <li>User-friendly operation</li>
+                    <li>Data logging and analysis</li>
+                    <li>Professional certification</li>
                   </ul>
                 </div>
               </div>
@@ -168,69 +287,6 @@
         </div>
       </div>
 
-      <div class="technology-stack">
-        <h2>Our Technology Stack</h2>
-        <div class="tech-areas">
-          <div class="tech-area">
-            <h3>Data Analytics Platform</h3>
-            <p>Advanced machine learning algorithms and AI-powered insights for predictive analytics and trend analysis.</p>
-            <div class="tech-features">
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">Real-time Processing</span>
-              <span class="tech-tag">Predictive Analytics</span>
-            </div>
-          </div>
-          
-          <div class="tech-area">
-            <h3>Cloud Infrastructure</h3>
-            <p>Scalable cloud-based solutions for data storage, processing, and secure access from anywhere.</p>
-            <div class="tech-features">
-              <span class="tech-tag">Cloud Computing</span>
-              <span class="tech-tag">Secure Storage</span>
-              <span class="tech-tag">Global Access</span>
-            </div>
-          </div>
-          
-          <div class="tech-area">
-            <h3>IoT Integration</h3>
-            <p>Seamless integration with Internet of Things devices for comprehensive monitoring and control.</p>
-            <div class="tech-features">
-              <span class="tech-tag">IoT Connectivity</span>
-              <span class="tech-tag">Remote Monitoring</span>
-              <span class="tech-tag">Automated Control</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="innovation-commitment">
-        <h2>Our Commitment to Innovation</h2>
-        <p>
-          At MASN, we continuously invest in the latest technology and equipment to ensure our clients 
-          receive the most advanced solutions available. Our devices are regularly updated and maintained 
-          to industry-leading standards.
-        </p>
-        <div class="innovation-stats">
-          <div class="stat">
-            <h3>$2M+</h3>
-            <p>Annual R&D Investment</p>
-          </div>
-          <div class="stat">
-            <h3>99.9%</h3>
-            <p>Equipment Uptime</p>
-          </div>
-          <div class="stat">
-            <h3>24/7</h3>
-            <p>Technical Support</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="devices-cta">
-        <h2>Interested in Our Technology?</h2>
-        <p>Contact us to learn more about our equipment capabilities and how they can benefit your projects.</p>
-        <router-link to="/contact" class="cta-button">Learn More</router-link>
-      </div>
     </div>
   </div>
 </template>
@@ -256,6 +312,14 @@ h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
   color: #333;
+}
+
+.mongolian-subheader {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
 }
 
 .page-intro {

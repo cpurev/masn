@@ -1,162 +1,84 @@
 <template>
   <div class="py-16 min-h-screen">
     <div class="container-custom">
-      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">Our Services</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">Үйлчилгээ</h1>
       <p class="text-center max-w-4xl mx-auto mb-12 text-lg lg:text-xl text-gray-600">
-        Discover our comprehensive range of professional services designed to meet your business needs
-        and drive success in today's competitive landscape.
+        Бүх төрлийн оношлогоо, техникийн байдлыг үнэлгээ болон автоматжуулалтын шийдэлүүд
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         <div class="card p-8 group">
-          <div class="text-5xl mb-6">🎯</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Strategic Planning</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Comprehensive strategic planning services to help your organization define goals and achieve sustainable growth.</p>
-          <ul class="space-y-2">
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Business strategy development</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Market analysis</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Competitive positioning</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Growth planning</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 group">
-          <div class="text-5xl mb-6">⚡</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Process Optimization</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Streamline your operations and improve efficiency through our proven process optimization methodologies.</p>
-          <ul class="space-y-2">
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Workflow analysis</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Process mapping</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Efficiency improvements</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Quality assurance</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 group">
           <div class="text-5xl mb-6">💡</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Innovation Solutions</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Drive innovation within your organization with our cutting-edge solutions and creative problem-solving approaches.</p>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Техник үнэлгээ</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed"></p>
           <ul class="space-y-2">
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Innovation workshops</span>
+              <span class="text-gray-600">Цахилгаан эрчим хүчний чанар</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Technology integration</span>
+              <span class="text-gray-600">Трансформаторын үйлчилгээ</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Creative problem solving</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Digital transformation</span>
+              <span class="text-gray-600">Үл эвдэх сорил (хэт авиа, соронзон санамж, гадаргуугийн)</span>
             </li>
           </ul>
         </div>
 
         <div class="card p-8 group">
           <div class="text-5xl mb-6">📊</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Data Analytics</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Leverage the power of data to make informed decisions and gain valuable insights into your business operations.</p>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Оношлогоо</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed"></p>
           <ul class="space-y-2">
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Data visualization</span>
+              <span class="text-gray-600">Доргио чичиргээ</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Business intelligence</span>
+              <span class="text-gray-600">Статорын гүйдэл</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Predictive analytics</span>
+              <span class="text-gray-600">Цахилгаан соронзон момент</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Performance metrics</span>
+              <span class="text-gray-600">Халалт</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary-500 font-bold">✓</span>
+              <span class="text-gray-600">Тусгаарлалын эсэргүүцэл</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary-500 font-bold">✓</span>
+              <span class="text-gray-600">Газардуулгын эсэргүүцэл</span>
             </li>
           </ul>
         </div>
 
         <div class="card p-8 group">
           <div class="text-5xl mb-6">🔧</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Technical Support</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Reliable technical support services to ensure your systems run smoothly and efficiently at all times.</p>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Автоматжуулалт</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed"></p>
           <ul class="space-y-2">
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">System maintenance</span>
+              <span class="text-gray-600">ПЛС автоматжуулалт </span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Troubleshooting</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Software updates</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">24/7 support</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 group">
-          <div class="text-5xl mb-6">🤝</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Project Management</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">Expert project management services to ensure your initiatives are delivered on time, within scope, and budget.</p>
-          <ul class="space-y-2">
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Project planning</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Resource allocation</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Risk management</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Quality control</span>
+              <span class="text-gray-600">Давтамж хувиргагчийн тохируулга, автоматжуулалт</span>
             </li>
           </ul>
         </div>
       </div>
-
       <div class="gradient-bg text-white rounded-xl p-12 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-        <p class="text-xl mb-8 opacity-90">Contact us today to discuss how our services can benefit your organization.</p>
-        <router-link to="/contact" class="btn-secondary">Get in Touch</router-link>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Холбоо барих</h2>
+        <p class="text-xl mb-8 opacity-90"></p>
+        <router-link to="/contact" class="btn-secondary">Холбоо барих</router-link>
       </div>
     </div>
   </div>
