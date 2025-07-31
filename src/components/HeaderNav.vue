@@ -6,7 +6,7 @@
           <router-link to="/" class="flex items-center gap-4 text-decoration-none">
             <img src="/img/logo.jpg" alt="MASN Logo" class="w-32 h-16 rounded-lg object-contain max-[480px]:w-12 max-[480px]:h-12" />
             <!-- Full name for very large screens only -->
-            <span class="hidden 2xl:block text-lg font-bold text-gray-800 tracking-wide whitespace-nowrap">Mongolian American Solutions Network</span>
+            <span class="hidden 2xl:block text-lg font-bold text-gray-800 tracking-wide whitespace-nowrap">Mongolian Advanced Solutions Network</span>
             <!-- Abbreviated name for medium to large screens -->
             <span class="hidden lg:block 2xl:hidden text-xl font-bold text-gray-800 tracking-wide whitespace-nowrap max-[480px]:text-xl">MASN</span>
             <!-- Hidden on small screens to save space -->
