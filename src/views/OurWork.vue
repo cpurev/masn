@@ -1,168 +1,104 @@
 <template>
   <div class="our-work">
-    <div class="container">
-      <h1>Гүйцэтгэсэн ажлууд, төслүүд</h1>
+    <!-- Loading state -->
+    <div v-if="loading" class="flex justify-center items-center min-h-screen">
+      <div class="text-gray-600">Loading...</div>
+    </div>
+
+    <!-- Error state -->
+    <div v-else-if="error" class="flex justify-center items-center min-h-screen">
+      <div class="text-red-600">{{ error }}</div>
+    </div>
+
+    <!-- Main content -->
+    <div v-else class="container">
+      <!-- Hero Section -->
+      <h1>{{ heroData.title || 'Гүйцэтгэсэн ажлууд, төслүүд' }}</h1>
       <p class="page-intro">
-        Манай багийн гүйцэтгэсэн техник инженерийн төслүүд, судалгааны ажлууд болон 
-        үйлчлүүлэгчдэдээ хүргэсэн үр дүнгүүдтэй танилцаарай.
+        {{ heroData.description || 'Манай багийн гүйцэтгэсэн техник инженерийн төслүүд, судалгааны ажлууд болон үйлчлүүлэгчдэдээ хүргэсэн үр дүнгүүдтэй танилцаарай.' }}
       </p>
 
+      <!-- Projects Section -->
       <div class="project-categories">
-        <h2>Гол төслүүд</h2>
+        <h2>{{ projectsHeading.title || 'Гол төслүүд' }}</h2>
         
         <div class="projects-grid">
-          <div class="project-card">
+          <div 
+            v-for="(project, index) in projectCards" 
+            :key="project.title"
+            class="project-card"
+          >
             <div class="project-image">
-              <div class="placeholder-image">⚙️</div>
+              <div class="placeholder-image">{{ getProjectIcon(index) }}</div>
             </div>
             <div class="project-content">
-              <h3>Эргэлдэх тоног төхөөрөмжийн үл задлах аргын нутагшуулах судалгаа</h3>
+              <h3>{{ project.title }}</h3>
               <p class="project-description">
-                Эргэлдэх тоног төхөөрөмжийн техникийн байдлыг үл задлах аргаар шинжлэх 
-                технологийг нутагшуулах чиглэлийн судалгаа хийсэн.
+                {{ project.subtitle || '' }}
               </p>
               <div class="project-tags">
-                <span class="tag">Үл задлах шинжилгээ</span>
-                <span class="tag">Эргэлдэх тоног төхөөрөмж</span>
-                <span class="tag">Судалгаа</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">⚡</div>
-            </div>
-            <div class="project-content">
-              <h3>Налайхын гангийн үйлдвэрийн цахилгаан эрчим хүчний чанарын судалгаа</h3>
-              <p class="project-description">
-                Үйлдвэрийн цахилгаан эрчим хүчний чанарыг дээшлүүлэх зорилгоор 
-                дэлгэрэнгүй техникийн судалгаа хийж гүйцэтгэсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Цахилгаан эрчим хүч</span>
-                <span class="tag">Чанарын судалгаа</span>
-                <span class="tag">Гангийн үйлдвэр</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">💧</div>
-            </div>
-            <div class="project-content">
-              <h3>Эрдэнэт үйлдвэрийн ус хангамжийн цехийн эрчим хүчний аудит</h3>
-              <p class="project-description">
-                Ус хангамжийн цехийн цахилгаан эрчим хүчний хэрэглээний 
-                үр ашгийг нэмэгдүүлэх аудитын ажил хийсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Эрчим хүчний аудит</span>
-                <span class="tag">Ус хангамж</span>
-                <span class="tag">Үр ашиг</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">🔧</div>
-            </div>
-            <div class="project-content">
-              <h3>Үйлдвэрлэлийн цахилгаан хөдөлгүүдийн роторын гэмтлийг үл задлах аргын оношилгоо</h3>
-              <p class="project-description">
-                Цахилгаан хөдөлгүүдийн роторын гэмтлийг үл задлах аргаар 
-                оношлох технологи хэрэглэсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Хөдөлгүүр оношилгоо</span>
-                <span class="tag">Роторын гэмтэл</span>
-                <span class="tag">Үл задлах арга</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">📊</div>
-            </div>
-            <div class="project-content">
-              <h3>Баяжуулах үйлдвэрийн цахилгаан хөдөлгүүрийн доргионы ба халалтын спектр шинжилгээ</h3>
-              <p class="project-description">
-                Цахилгаан хөдөлгүүрийн доргион болон халалтын спектрийг шинжлэн 
-                техникийн байдлыг үнэлэх ажил хийсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Спектр шинжилгээ</span>
-                <span class="tag">Доргионы шинжилгээ</span>
-                <span class="tag">Халалтын шинжилгээ</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">📈</div>
-            </div>
-            <div class="project-content">
-              <h3>Цахилгаан эрчим хүчний үр ашгийг нэмэгдүүлэх судалгаа</h3>
-              <p class="project-description">
-                Эрчим хүчний хэрэглээг оновчтой болгож, үр ашгийг дээшлүүлэх 
-                арга замуудыг судалсан.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Үр ашиг</span>
-                <span class="tag">Эрчим хүчний хэмнэлт</span>
-                <span class="tag">Оновчтой хэрэглээ</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">🔍</div>
-            </div>
-            <div class="project-content">
-              <h3>Асинхрон хөдөлгүүрийн үл задлах аргын оношилгоо</h3>
-              <p class="project-description">
-                Асинхрон хөдөлгүүрүүдийн техникийн байдлыг үл задлах аргаар 
-                оношлох ажлыг гүйцэтгэсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Асинхрон хөдөлгүүр</span>
-                <span class="tag">Үл задлах оношилгоо</span>
-                <span class="tag">Техникийн үзлэг</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">🏗️</div>
-            </div>
-            <div class="project-content">
-              <h3>Бие даасан цахилгаан, дулааны эх үүсгүүрийн зураг төсөл, угсралт</h3>
-              <p class="project-description">
-                Бие даасан цахилгаан болон дулааны эх үүсгүүрийн зураг төсөл 
-                боловсруулж, угсралтын ажлыг хийсэн.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Зураг төсөл</span>
-                <span class="tag">Угсралт</span>
-                <span class="tag">Эх үүсгүүр</span>
+                <span 
+                  v-for="tag in project.tagsList" 
+                  :key="tag"
+                  class="tag"
+                >
+                  {{ tag }}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-</div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Our Work page component
+import { computed, watch } from 'vue'
+import { useSheetData } from '@/composables/useSheetData'
+
+// Load OurWork page data
+const { data, loading, error } = useSheetData('OurWork')
+
+// Debug logging
+watch(data, (newData) => {
+  console.log('📊 OurWork page data:', newData)
+}, { immediate: true })
+
+// Hero section data (main title and description)
+const heroData = computed(() => {
+  return data.value.find(item => item.section === 'hero') || {
+    title: 'Гүйцэтгэсэн ажлууд, төслүүд',
+    description: 'Манай багийн гүйцэтгэсэн техник инженерийн төслүүд, судалгааны ажлууд болон үйлчлүүлэгчдэдээ хүргэсэн үр дүнгүүдтэй танилцаарай.'
+  }
+})
+
+// Projects heading
+const projectsHeading = computed(() => {
+  return data.value.find(item => item.section === 'projects' && item.type === 'heading') || {
+    title: 'Гол төслүүд'
+  }
+})
+
+// Project cards data
+const projectCards = computed(() => {
+  const cards = data.value
+    .filter(item => item.section === 'card')
+    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
+  
+  // Process description field - split comma-separated values into tag arrays
+  return cards.map(card => ({
+    ...card,
+    tagsList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
+  }))
+})
+
+// Fallback icons for project cards
+const projectIcons = ['⚙️', '⚡', '💧', '🔧', '📊', '📈', '🔍', '🏗️', '💡', '🔬', '📋', '⚙️']
+
+const getProjectIcon = (index: number) => {
+  return projectIcons[index] || '📋'
+}
 </script>
 
 <style scoped>

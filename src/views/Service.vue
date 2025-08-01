@@ -1,80 +1,51 @@
 <template>
   <div class="py-16 min-h-screen">
-    <div class="container-custom">
-      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">Үйлчилгээ</h1>
+    <!-- Loading state -->
+    <div v-if="loading" class="flex justify-center items-center min-h-screen">
+      <div class="text-gray-600">Loading...</div>
+    </div>
+
+    <!-- Error state -->
+    <div v-else-if="error" class="flex justify-center items-center min-h-screen">
+      <div class="text-red-600">{{ error }}</div>
+    </div>
+
+    <!-- Main content -->
+    <div v-else class="container-custom">
+      <!-- Hero Section -->
+      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-6 text-gray-800">
+        {{ heroData.title || 'Үйлчилгээ' }}
+      </h1>
       <p class="text-center max-w-4xl mx-auto mb-12 text-lg lg:text-xl text-gray-600">
-        Бүх төрлийн оношлогоо, техникийн байдлыг үнэлгээ болон автоматжуулалтын шийдэлүүд
+        {{ heroData.description || 'Бүх төрлийн оношлогоо, техникийн байдлыг үнэлгээ болон автоматжуулалтын шийдэлүүд' }}
       </p>
 
+      <!-- Service Cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        <div class="card p-8 group">
-          <div class="text-5xl mb-6">💡</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Техник үнэлгээ</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed"></p>
+        <div 
+          v-for="(service, index) in serviceCards" 
+          :key="service.title"
+          class="card p-8 group"
+        >
+          <div class="text-5xl mb-6">{{ getServiceIcon(index) }}</div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
+            {{ service.title }}
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">{{ service.subtitle || '' }}</p>
           <ul class="space-y-2">
-            <li class="flex items-start gap-3">
+            <li 
+              v-for="item in service.descriptionList" 
+              :key="item"
+              class="flex items-start gap-3"
+            >
               <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Цахилгаан эрчим хүчний чанар</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Трансформаторын үйлчилгээ</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Үл эвдэх сорил (хэт авиа, соронзон санамж, гадаргуугийн)</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 group">
-          <div class="text-5xl mb-6">📊</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Оношлогоо</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed"></p>
-          <ul class="space-y-2">
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Доргио чичиргээ</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Статорын гүйдэл</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Цахилгаан соронзон момент</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Халалт</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Тусгаарлалын эсэргүүцэл</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Газардуулгын эсэргүүцэл</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card p-8 group">
-          <div class="text-5xl mb-6">🔧</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">Автоматжуулалт</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed"></p>
-          <ul class="space-y-2">
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">ПЛС автоматжуулалт </span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">Давтамж хувиргагчийн тохируулга, автоматжуулалт</span>
+              <span class="text-gray-600">{{ item }}</span>
             </li>
           </ul>
         </div>
       </div>
+
+      <!-- CTA Section -->
       <div class="gradient-bg text-white rounded-xl p-12 text-center">
         <h2 class="text-3xl lg:text-4xl font-bold mb-4">Холбоо барих</h2>
         <p class="text-xl mb-8 opacity-90"></p>
@@ -85,7 +56,44 @@
 </template>
 
 <script setup lang="ts">
-// Service page component
+import { computed, watch } from 'vue'
+import { useSheetData } from '@/composables/useSheetData'
+
+// Load Service page data
+const { data, loading, error } = useSheetData('Service')
+
+// Debug logging
+watch(data, (newData) => {
+  console.log('📊 Service page data:', newData)
+}, { immediate: true })
+
+// Hero section data (main title and subtitle)
+const heroData = computed(() => {
+  return data.value.find(item => item.section === 'hero') || {
+    title: 'Үйлчилгээ',
+    description: 'Бүх төрлийн оношлогоо, техникийн байдлыг үнэлгээ болон автоматжуулалтын шийдэлүүд'
+  }
+})
+
+// Service cards data
+const serviceCards = computed(() => {
+  const cards = data.value
+    .filter(item => item.section === 'card')
+    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
+  
+  // Process description field - split comma-separated values into arrays
+  return cards.map(card => ({
+    ...card,
+    descriptionList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
+  }))
+})
+
+// Fallback icons for service cards
+const serviceIcons = ['💡', '📊', '🔧', '⚙️', '🔬', '🛠️']
+
+const getServiceIcon = (index: number) => {
+  return serviceIcons[index] || '🔧'
+}
 </script>
 
 <style scoped>

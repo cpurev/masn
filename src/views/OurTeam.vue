@@ -1,59 +1,60 @@
 <template>
   <div class="our-team">
-    <div class="container">
-      <h1>Манай баг</h1>
+    <!-- Loading state -->
+    <div v-if="loading" class="flex justify-center items-center min-h-screen">
+      <div class="text-gray-600">Loading...</div>
+    </div>
+
+    <!-- Error state -->
+    <div v-else-if="error" class="flex justify-center items-center min-h-screen">
+      <div class="text-red-600">{{ error }}</div>
+    </div>
+
+    <!-- Main content -->
+    <div v-else class="container">
+      <!-- Hero Section -->
+      <h1>{{ heroData?.title || 'Манай баг' }}</h1>
       <p class="page-intro">
-        Meet the dedicated professionals who drive our success. Our diverse team brings together 
-        years of experience, innovative thinking, and a shared commitment to excellence.
+        {{ heroData?.description || 'Meet the dedicated professionals who drive our success. Our diverse team brings together years of experience, innovative thinking, and a shared commitment to excellence.' }}
       </p>
 
+      <!-- Team Members -->
       <div class="leadership-section">
         <div class="team-grid">
-          <div class="team-member">
+          <div 
+            v-for="(member, index) in teamMembers" 
+            :key="member.title"
+            class="team-member"
+          >
             <div class="member-photo">
-              <img src="/img/ariun.png" alt="Dr.Ариунболор Пүрвээ" class="member-image">
-            </div>
-            <div class="member-info">
-              <h3>Dr.Ариунболор Пүрвээ</h3>
-              <p class="member-title"></p>
-              <p class="member-description">
-                МУ-ын зөвлөх инженер, Техникийн ухааны доктор, 
-                Уул уурхйн цахилгаан механик тоног төхөөрөмжийн инженер, үл задлах аргын мэргэжилтэн
-              </p>
-              <div class="member-expertise">
+              <img 
+                v-if="member.img" 
+                :src="member.img" 
+                :alt="member.title"
+                class="member-image"
+                @error="handleImageError"
+              />
+              <div 
+                v-else 
+                class="placeholder-photo"
+              >
+                {{ getTeamIcon(index) }}
               </div>
             </div>
-          </div>
-
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="/img/bold.png" alt="Болд Энхболд" class="member-image">
-            </div>
             <div class="member-info">
-              <h3>Болд Энхболд </h3>
-              <p class="member-title"></p>
+              <h3>{{ member.title }}</h3>
+              <p class="member-title">{{ member.subtitle || '' }}</p>
               <p class="member-description">
-                МУ-ын зөвлөх инженер, Техникийн ухааны доктор, 
-                Уул уурхйн цахилгаан механик тоног төхөөрөмжийн инженер, үл задлах аргын мэргэжилтэн
+                {{ member.description || '' }}
               </p>
-              <div class="member-expertise">
-              </div>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="/img/nikita.png" alt="Никита Абрамов" class="member-image">
-            </div>
-            <div class="member-info">
-              <h3>Никита Абрамов</h3>
-              <p class="member-title"></p>
-              <p class="member-description">
-                Техникийн ухааны магистр,
-                Өндөр хүчдэлий инженер,
-                автоматжуулалтын мэргэжилтэн
-              </p>
-              <div class="member-expertise">
+              <div v-if="member.expertiseList && member.expertiseList.length > 0" class="member-expertise">
+                <span 
+                  v-for="expertise in member.expertiseList" 
+                  :key="expertise"
+                  class="expertise-tag"
+                >
+                  {{ expertise }}
+                </span>
               </div>
             </div>
           </div>
@@ -64,7 +65,53 @@
 </template>
 
 <script setup lang="ts">
-// Our Team page component
+import { computed, watch } from 'vue'
+import { useSheetData } from '@/composables/useSheetData'
+
+// Load OurTeam page data
+const { data, loading, error } = useSheetData('OurTeam')
+
+// Debug logging
+watch(data, (newData) => {
+  console.log('📊 OurTeam page data:', newData)
+}, { immediate: true })
+
+// Hero section data (main title and description)
+const heroData = computed(() => {
+  return data.value.find(item => item.section === 'hero') || {
+    title: 'Манай баг',
+    description: 'Meet the dedicated professionals who drive our success. Our diverse team brings together years of experience, innovative thinking, and a shared commitment to excellence.'
+  }
+})
+
+// Team members data
+const teamMembers = computed(() => {
+  return data.value
+    .filter(item => item.section === 'card')
+    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
+    .map(member => ({
+      ...member,
+      expertiseList: member.expertise ? member.expertise.split(',').map((item: string) => item.trim()) : []
+    }))
+})
+
+// Fallback icons for team members when no image is available
+const teamIcons = ['👨‍💼', '👩‍💼', '👨‍🔬', '👩‍🔬', '👨‍💻', '👩‍💻', '👨‍🎓', '👩‍🎓', '🧑‍💼', '🧑‍🔬']
+
+const getTeamIcon = (index: number) => {
+  return teamIcons[index % teamIcons.length]
+}
+
+// Handle image loading errors
+const handleImageError = (event: Event) => {
+  const target = event.target as HTMLImageElement
+  // Hide the broken image and show placeholder
+  target.style.display = 'none'
+  const placeholder = target.parentElement?.querySelector('.placeholder-photo')
+  if (placeholder) {
+    (placeholder as HTMLElement).style.display = 'flex'
+  }
+}
 </script>
 
 <style scoped>
@@ -99,16 +146,9 @@ h1 {
   margin-bottom: 4rem;
 }
 
-.leadership-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
-  font-size: 2rem;
-}
-
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -136,6 +176,7 @@ h1 {
   margin: 0 auto 1rem;
   overflow: hidden;
   border: 3px solid #667eea;
+  position: relative;
 }
 
 .member-image {
@@ -148,6 +189,15 @@ h1 {
 .placeholder-photo {
   font-size: 3rem;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
 }
 
 .member-info h3 {
@@ -160,6 +210,7 @@ h1 {
   color: #667eea;
   font-weight: 500;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .member-description {
@@ -167,6 +218,7 @@ h1 {
   line-height: 1.6;
   margin-bottom: 1rem;
   text-align: left;
+  font-size: 0.95rem;
 }
 
 .member-expertise {
@@ -185,140 +237,19 @@ h1 {
   font-weight: 500;
 }
 
-.departments-section {
-  margin-bottom: 4rem;
+@media (max-width: 968px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.departments-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
-  font-size: 2rem;
-}
-
-.department {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.department h3 {
-  margin-bottom: 1rem;
-  color: #333;
-  font-size: 1.5rem;
-}
-
-.department-description {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.department-members {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.department-member {
-  background: white;
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.department-member h4 {
-  margin-bottom: 0.3rem;
-  color: #333;
-  font-size: 1rem;
-}
-
-.department-member p {
-  color: #667eea;
-  font-size: 0.9rem;
-}
-
-.team-values {
-  background: #f8f9fa;
-  padding: 3rem;
-  border-radius: 8px;
-  margin-bottom: 4rem;
-}
-
-.team-values h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.value {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.value-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.value h3 {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.value p {
-  color: #666;
-  line-height: 1.5;
-}
-
-.join-team-cta {
-  text-align: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 3rem;
-  border-radius: 8px;
-}
-
-.join-team-cta h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.join-team-cta p {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background: white;
-  color: #667eea;
-  padding: 0.75rem 2rem;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: transform 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .team-grid {
     grid-template-columns: 1fr;
   }
   
-  .department-members {
-    grid-template-columns: 1fr;
+  .team-member {
+    padding: 1.5rem;
   }
 }
 </style> 

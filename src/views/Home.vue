@@ -1,83 +1,136 @@
 <template>
   <div class="min-h-screen">
-    <!-- Hero Section -->
-    <section class="hero-section py-24 relative overflow-hidden">
-      
-      <div class="container-custom relative z-10">
-        <div class="max-w-5xl mx-auto">
-          <!-- Main title area -->
-          <div class="text-center mb-16">
-            <h1 class="text-6xl lg:text-7xl font-light text-gray-900 mb-4 tracking-tight">MASN</h1>
-            <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">Mongolian Advanced Solutions Network</p>
-          </div>
-          
-          <!-- Services grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-gray-200">
-            <div class="text-center">
-              <div class="text-blue-600 font-semibold text-sm mb-2">CMD</div>
-              <div class="text-gray-600 text-sm leading-relaxed">Condition Monitoring & Diagnostics</div>
-            </div>
-            <div class="text-center">
-              <div class="text-blue-600 font-semibold text-sm mb-2">PdM</div>
-              <div class="text-gray-600 text-sm leading-relaxed">Predictive Maintenance</div>
-            </div>
-            <div class="text-center">
-              <div class="text-blue-600 font-semibold text-sm mb-2">IA</div>
-              <div class="text-gray-600 text-sm leading-relaxed">Industrial Automation</div>
-            </div>
-            <div class="text-center">
-              <div class="text-blue-600 font-semibold text-sm mb-2">HVE</div>
-              <div class="text-gray-600 text-sm leading-relaxed">High Voltage Engineering</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Loading state -->
+    <div v-if="loading" class="flex justify-center items-center min-h-screen">
+      <div class="text-gray-600">Loading...</div>
+    </div>
 
-    <!-- Introduction Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-light text-center mb-12 text-gray-800">МАСН ХХК</h2>
-        <div class="max-w-4xl mx-auto">
-          <p class="text-lg text-gray-600 leading-relaxed text-center">
-            Манай компани эргэлдэх цахилгаан тоног төхөөрөмжийн үл задлах аргын оношлогоо, 
-            цахилгаан эрчим хүчний чанарын үнэлгээ, сэргээгдэх эрчим хүч, бие даасан дулааны эх үүсгүүр, 
-            автоматжуулалтын шийдэл, мэргэжлийн болон зэргийн бус сургалтын чиглэлээр тогтвортой, идэвхтэй 
-            үйл ажиллагаа явуулж байна.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- Error state -->
+    <div v-else-if="error" class="flex justify-center items-center min-h-screen">
+      <div class="text-red-600">{{ error }}</div>
+    </div>
 
-    <!-- Quick Services Overview -->
-    <section class="py-20">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-light text-center mb-16 text-gray-800">What We Offer</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="card p-8 text-center group">
-            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Services</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">Comprehensive professional services tailored to your needs</p>
-          </div>
-          <div class="card p-8 text-center group">
-            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Training</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">Expert-led training programs to enhance skills and knowledge</p>
-          </div>
-          <div class="card p-8 text-center group">
-            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Consultancy</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">Strategic consulting to drive your business forward</p>
-          </div>
-          <div class="card p-8 text-center group">
-            <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Our Devices</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">State-of-the-art equipment and technology solutions</p>
+    <!-- Main content -->
+    <div v-else>
+      <!-- Hero Section -->
+      <section class="hero-section py-24 relative overflow-hidden">
+        <div class="container-custom relative z-10">
+          <div class="max-w-5xl mx-auto">
+            <!-- Main title area -->
+            <div class="text-center mb-16">
+              <h1 class="text-6xl lg:text-7xl font-light text-gray-900 mb-4 tracking-tight">
+                {{ heroData.title }}
+              </h1>
+              <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">
+                {{ heroData.subtitle }}
+              </p>
+            </div>
+            
+            <!-- Services grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-gray-200">
+              <div 
+                v-for="service in heroServices" 
+                :key="service.title"
+                class="text-center"
+              >
+                <div class="text-blue-600 font-semibold text-sm mb-2">{{ service.title }}</div>
+                <div class="text-gray-600 text-sm leading-relaxed">{{ service.subtitle }}</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Introduction Section -->
+      <section class="py-20 bg-gray-50">
+        <div class="container-custom">
+          <template v-for="item in introData" :key="item.title || item.description">
+            <h2 
+              v-if="item.type === 'heading'" 
+              class="text-3xl lg:text-4xl font-light text-center mb-12 text-gray-800"
+            >
+              {{ item.title }}
+            </h2>
+            <div 
+              v-else-if="item.type === 'content'" 
+              class="max-w-4xl mx-auto"
+            >
+              <p class="text-lg text-gray-600 leading-relaxed text-center">
+                {{ item.description }}
+              </p>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <!-- Quick Services Overview -->
+      <section class="py-20">
+        <div class="container-custom">
+          <h2 class="text-3xl lg:text-4xl font-light text-center mb-16 text-gray-800">
+            {{ servicesHeading.title || 'What We Offer' }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div 
+              v-for="service in servicesData" 
+              :key="service.title"
+              class="card p-8 text-center group"
+            >
+              <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                {{ service.title }}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {{ service.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Home page component
+import { computed, watch } from 'vue'
+import { useSheetData } from '@/composables/useSheetData'
+
+// Load only Home page data when this component mounts
+const { data, loading, error } = useSheetData('Home')
+console.log('data', data)
+watch(data, (newData) => {
+  console.log('📊 Google Sheets Raw Data:', newData)
+}, { immediate: true })
+
+// Process the data (you can customize this based on your sheet structure)
+const heroData = computed(() => {
+  return data.value.find(item => item.section === 'hero' && item.type === 'main') || {
+    title: 'MASN',
+    subtitle: 'Mongolian Advanced Solutions Network'
+  }
+})
+
+const heroServices = computed(() => {
+  return data.value
+    .filter(item => item.section === 'hero' && item.type === 'service')
+    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
+})
+
+const introData = computed(() => {
+  return data.value.filter(item => item.section === 'intro')
+    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
+})
+
+const servicesData = computed(() => {
+  return data.value
+    .filter(item => item.section === 'services' && item.type === 'card')
+    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
+})
+
+// Add this missing computed property:
+const servicesHeading = computed(() => {
+  return data.value.find(item => item.section === 'services' && item.type === 'heading') || {
+    title: 'What We Offer'
+  }
+})
 </script>
 
 <style scoped>
