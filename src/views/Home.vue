@@ -13,16 +13,20 @@
     <!-- Main content -->
     <div v-else>
       <!-- Hero Section -->
-      <section class="hero-section py-24 relative overflow-hidden">
+      <section 
+        class="hero-section py-24 relative overflow-hidden"
+        :style="heroData?.img && heroData.img.trim() ? { backgroundImage: `url(${heroData.img})` } : {}"
+        :class="{ 'has-background-image': heroData?.img && heroData.img.trim() }"
+      >
         <div class="container-custom relative z-10">
           <div class="max-w-5xl mx-auto">
             <!-- Main title area -->
             <div class="text-center mb-16">
-              <h1 class="text-6xl lg:text-7xl font-light text-gray-900 mb-4 tracking-tight">
-                {{ heroData.title }}
+              <h1 class="hero-title text-7xl lg:text-8xl font-bold text-gray-900 mb-6 tracking-tight">
+                {{ heroData?.title || 'Welcome' }}
               </h1>
-              <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">
-                {{ heroData.subtitle }}
+              <p class="hero-subtitle text-2xl lg:text-3xl text-gray-600 font-semibold max-w-3xl mx-auto">
+                {{ heroData?.subtitle || 'Loading...' }}
               </p>
             </div>
             
@@ -33,8 +37,8 @@
                 :key="service.title"
                 class="text-center"
               >
-                <div class="text-blue-600 font-semibold text-sm mb-2">{{ service.title }}</div>
-                <div class="text-gray-600 text-sm leading-relaxed">{{ service.subtitle }}</div>
+                <div class="hero-service-title text-blue-600 font-bold text-lg mb-3">{{ service.title }}</div>
+                <div class="hero-service-subtitle text-gray-600 text-base font-medium leading-relaxed">{{ service.subtitle }}</div>
               </div>
             </div>
           </div>
@@ -102,10 +106,7 @@ watch(data, (newData) => {
 
 // Process the data (you can customize this based on your sheet structure)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero' && item.type === 'main') || {
-    title: 'MASN',
-    subtitle: 'Mongolian Advanced Solutions Network'
-  }
+  return data.value.find(item => item.section === 'hero' && item.type === 'main')
 })
 
 const heroServices = computed(() => {
@@ -136,6 +137,41 @@ const servicesHeading = computed(() => {
 <style scoped>
 .hero-section {
   background-color: #fefce8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section.has-background-image {
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: overlay;
+}
+
+.hero-section.has-background-image .hero-title {
+  color: white;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section.has-background-image .hero-subtitle {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-section.has-background-image .hero-service-title {
+  color: white !important;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-section.has-background-image .hero-service-subtitle {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section.has-background-image .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .home {

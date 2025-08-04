@@ -29,7 +29,13 @@
             class="project-card"
           >
             <div class="project-image">
-              <div class="placeholder-image">{{ getProjectIcon(index) }}</div>
+              <img 
+                v-if="project.img && project.img.trim()" 
+                :src="project.img" 
+                :alt="project.title"
+                class="project-img"
+              />
+              <div v-else class="placeholder-image">{{ getProjectIcon(index) }}</div>
             </div>
             <div class="project-content">
               <h3>{{ project.title }}</h3>
@@ -161,6 +167,13 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .placeholder-image {

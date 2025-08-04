@@ -25,23 +25,36 @@
         <div 
           v-for="(service, index) in serviceCards" 
           :key="service.title"
-          class="card p-8 group"
+          class="service-card group"
         >
-          <div class="text-5xl mb-6">{{ getServiceIcon(index) }}</div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
-            {{ service.title }}
-          </h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">{{ service.subtitle || '' }}</p>
-          <ul class="space-y-2">
-            <li 
-              v-for="item in service.descriptionList" 
-              :key="item"
-              class="flex items-start gap-3"
-            >
-              <span class="text-primary-500 font-bold">✓</span>
-              <span class="text-gray-600">{{ item }}</span>
-            </li>
-          </ul>
+          <!-- Image Background with Title Overlay -->
+          <div 
+            class="service-hero"
+            :style="service.img && service.img.trim() ? { backgroundImage: `url(${service.img})` } : {}"
+            :class="{ 'has-image': service.img && service.img.trim() }"
+          >
+            <div v-if="!service.img || !service.img.trim()" class="service-icon">
+              {{ getServiceIcon(index) }}
+            </div>
+            <div class="service-overlay">
+              <h3 class="service-title">{{ service.title }}</h3>
+            </div>
+          </div>
+          
+          <!-- Content Below Image -->
+          <div class="service-content">
+            <p class="text-gray-600 mb-6 leading-relaxed">{{ service.subtitle || '' }}</p>
+            <ul class="space-y-2">
+              <li 
+                v-for="item in service.descriptionList" 
+                :key="item"
+                class="flex items-start gap-3"
+              >
+                <span class="text-primary-500 font-bold">✓</span>
+                <span class="text-gray-600">{{ item }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -212,5 +225,66 @@ h1 {
 
 .cta-button:hover {
   transform: translateY(-2px);
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-hero {
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-hero.has-image {
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: overlay;
+}
+
+.service-hero:not(.has-image) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.service-icon {
+  font-size: 4rem;
+  color: white;
+  z-index: 2;
+}
+
+.service-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 2rem 1.5rem 1.5rem;
+  z-index: 2;
+}
+
+.service-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-content {
+  padding: 2rem;
 }
 </style> 
