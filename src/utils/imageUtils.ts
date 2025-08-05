@@ -47,7 +47,7 @@ export function convertGoogleDriveUrl(url: string): string {
  * Processes an object containing image URLs and converts any Google Drive URLs
  * Useful for batch processing of data from Google Sheets
  */
-export function processImageUrls<T extends Record<string, any>>(
+export function processImageUrls<T extends Record<string, unknown>>(
   data: T, 
   imageFields: (keyof T)[] = ['img', 'image', 'photo']
 ): T {
@@ -55,7 +55,7 @@ export function processImageUrls<T extends Record<string, any>>(
   
   imageFields.forEach(field => {
     if (processedData[field] && typeof processedData[field] === 'string') {
-      processedData[field] = convertGoogleDriveUrl(processedData[field] as string)
+      processedData[field] = convertGoogleDriveUrl(processedData[field] as string) as T[keyof T]
     }
   })
   
@@ -65,7 +65,7 @@ export function processImageUrls<T extends Record<string, any>>(
 /**
  * Processes an array of objects and converts Google Drive URLs in specified image fields
  */
-export function processImageUrlsInArray<T extends Record<string, any>>(
+export function processImageUrlsInArray<T extends Record<string, unknown>>(
   dataArray: T[], 
   imageFields: (keyof T)[] = ['img', 'image', 'photo']
 ): T[] {
