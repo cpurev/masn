@@ -96,6 +96,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { convertGoogleDriveUrl } from '@/utils/imageUtils'
 
 // Load only Home page data when this component mounts
 const { data, loading, error } = useSheetData('Home')
@@ -106,7 +107,14 @@ watch(data, (newData) => {
 
 // Process the data (you can customize this based on your sheet structure)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero' && item.type === 'main')
+  const rawHeroData = data.value.find(item => item.section === 'hero' && item.type === 'main')
+  if (rawHeroData && rawHeroData.img) {
+    return {
+      ...rawHeroData,
+      img: convertGoogleDriveUrl(rawHeroData.img)
+    }
+  }
+  return rawHeroData
 })
 
 const heroServices = computed(() => {

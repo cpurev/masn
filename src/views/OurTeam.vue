@@ -67,6 +67,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { convertGoogleDriveUrl } from '@/utils/imageUtils'
 
 // Load OurTeam page data
 const { data, loading, error } = useSheetData('OurTeam')
@@ -91,6 +92,7 @@ const teamMembers = computed(() => {
     .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
     .map(member => ({
       ...member,
+      img: member.img ? convertGoogleDriveUrl(member.img) : member.img,
       expertiseList: member.expertise ? member.expertise.split(',').map((item: string) => item.trim()) : []
     }))
 })

@@ -71,6 +71,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { convertGoogleDriveUrl } from '@/utils/imageUtils'
 
 // Load Service page data
 const { data, loading, error } = useSheetData('Service')
@@ -94,9 +95,10 @@ const serviceCards = computed(() => {
     .filter(item => item.section === 'card')
     .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
   
-  // Process description field - split comma-separated values into arrays
+  // Process description field and convert Google Drive URLs
   return cards.map(card => ({
     ...card,
+    img: card.img ? convertGoogleDriveUrl(card.img) : card.img,
     descriptionList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
   }))
 })

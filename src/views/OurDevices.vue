@@ -67,6 +67,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { convertGoogleDriveUrl } from '@/utils/imageUtils'
 
 // Load OurDevices page data
 const { data, loading, error } = useSheetData('OurDevices')
@@ -91,6 +92,7 @@ const deviceCards = computed(() => {
     .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
     .map(device => ({
       ...device,
+      img: device.img ? convertGoogleDriveUrl(device.img) : device.img,
       featuresList: device.description ? device.description.split(',').map((item: string) => item.trim()) : []
     }))
 })
