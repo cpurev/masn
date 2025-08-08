@@ -67,7 +67,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
-import { convertGoogleDriveUrl } from '@/utils/imageUtils'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load OurDevices page data
 const { data, loading, error } = useSheetData('OurDevices')
@@ -77,25 +77,21 @@ watch(data, (newData) => {
   console.log('📊 OurDevices page data:', newData)
 }, { immediate: true })
 
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and description)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'БАГАЖУУД',
     subtitle: 'Гүйдэл, хүчдэл, эргэлдүүлэх цахилгаан соронзон момент, U, цахилгаан чанар, доргио чичиргээ'
   }
 })
 
 // All device cards
-const deviceCards = computed(() => {
-  return data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-    .map(device => ({
-      ...device,
-      img: device.img ? convertGoogleDriveUrl(device.img) : device.img,
-      featuresList: device.description ? device.description.split(',').map((item: string) => item.trim()) : []
-    }))
-})
+const deviceCards = computed(() => processed.value.cards.map(device => ({
+  ...device,
+  featuresList: device.descriptionList
+})))
 
 // Fallback icons for devices when no image is available
 const deviceIcons = [

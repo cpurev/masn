@@ -67,7 +67,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
-import { convertGoogleDriveUrl } from '@/utils/imageUtils'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load OurTeam page data
 const { data, loading, error } = useSheetData('OurTeam')
@@ -77,25 +77,21 @@ watch(data, (newData) => {
   console.log('📊 OurTeam page data:', newData)
 }, { immediate: true })
 
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and description)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'Манай баг',
     description: 'Meet the dedicated professionals who drive our success. Our diverse team brings together years of experience, innovative thinking, and a shared commitment to excellence.'
   }
 })
 
 // Team members data
-const teamMembers = computed(() => {
-  return data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-    .map(member => ({
-      ...member,
-      img: member.img ? convertGoogleDriveUrl(member.img) : member.img,
-      expertiseList: member.expertise ? member.expertise.split(',').map((item: string) => item.trim()) : []
-    }))
-})
+const teamMembers = computed(() => processed.value.cards.map(member => ({
+  ...member,
+  expertiseList: member.descriptionList
+})))
 
 // Fallback icons for team members when no image is available
 const teamIcons = ['👨‍💼', '👩‍💼', '👨‍🔬', '👩‍🔬', '👨‍💻', '👩‍💻', '👨‍🎓', '👩‍🎓', '🧑‍💼', '🧑‍🔬']

@@ -71,7 +71,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
-import { convertGoogleDriveUrl } from '@/utils/imageUtils'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load Service page data
 const { data, loading, error } = useSheetData('Service')
@@ -81,27 +81,19 @@ watch(data, (newData) => {
   console.log('📊 Service page data:', newData)
 }, { immediate: true })
 
+// Standardized processing
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and subtitle)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'Үйлчилгээ',
     description: 'Бүх төрлийн оношлогоо, техникийн байдлыг үнэлгээ болон автоматжуулалтын шийдэлүүд'
   }
 })
 
 // Service cards data
-const serviceCards = computed(() => {
-  const cards = data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-  
-  // Process description field and convert Google Drive URLs
-  return cards.map(card => ({
-    ...card,
-    img: card.img ? convertGoogleDriveUrl(card.img) : card.img,
-    descriptionList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
-  }))
-})
+const serviceCards = computed(() => processed.value.cards)
 
 // Fallback icons for service cards
 const serviceIcons = ['💡', '📊', '🔧', '⚙️', '🔬', '🛠️']

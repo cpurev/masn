@@ -82,7 +82,15 @@
               <h3 class="text-lg font-medium mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                 {{ service.title }}
               </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
+              <template v-if="service.descriptionList && service.descriptionList.length">
+                <ul class="text-gray-600 text-sm leading-relaxed space-y-2 text-left inline-block">
+                  <li v-for="item in service.descriptionList" :key="item" class="flex items-start gap-2">
+                    <span class="text-blue-600">•</span>
+                    <span>{{ item }}</span>
+                  </li>
+                </ul>
+              </template>
+              <p v-else class="text-gray-600 text-sm leading-relaxed">
                 {{ service.description }}
               </p>
             </div>
@@ -96,7 +104,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
-import { convertGoogleDriveUrl } from '@/utils/imageUtils'
+import { processHomePageData } from '@/utils/homePageData'
 
 // Load only Home page data when this component mounts
 const { data, loading, error } = useSheetData('Home')
@@ -105,41 +113,13 @@ watch(data, (newData) => {
   console.log('📊 Google Sheets Raw Data:', newData)
 }, { immediate: true })
 
-// Process the data (you can customize this based on your sheet structure)
-const heroData = computed(() => {
-  const rawHeroData = data.value.find(item => item.section === 'hero' && item.type === 'main')
-  if (rawHeroData && rawHeroData.img) {
-    return {
-      ...rawHeroData,
-      img: convertGoogleDriveUrl(rawHeroData.img)
-    }
-  }
-  return rawHeroData
-})
+const processed = computed(() => processHomePageData(data.value as unknown as Record<string, unknown>[]))
 
-const heroServices = computed(() => {
-  return data.value
-    .filter(item => item.section === 'hero' && item.type === 'service')
-    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
-})
-
-const introData = computed(() => {
-  return data.value.filter(item => item.section === 'intro')
-    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
-})
-
-const servicesData = computed(() => {
-  return data.value
-    .filter(item => item.section === 'services' && item.type === 'card')
-    .sort((a, b) => parseInt(a.order) - parseInt(b.order))
-})
-
-// Add this missing computed property:
-const servicesHeading = computed(() => {
-  return data.value.find(item => item.section === 'services' && item.type === 'heading') || {
-    title: 'What We Offer'
-  }
-})
+const heroData = computed(() => processed.value.heroMain)
+const heroServices = computed(() => processed.value.heroServices)
+const introData = computed(() => processed.value.intro)
+const servicesData = computed(() => processed.value.servicesCards)
+const servicesHeading = computed(() => processed.value.servicesHeading || { title: 'What We Offer' })
 </script>
 
 <style scoped>

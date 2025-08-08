@@ -154,7 +154,6 @@ const mobileDropdownRef = ref()
 // Dropdown items data
 const aboutUsItems = [
   { path: '/our-work', text: 'Бидний ажлууд' },
-  { path: '/our-devices', text: 'Бидний төхөөрөмж' },
   { path: '/our-team', text: 'Манай баг' }
 ]
 

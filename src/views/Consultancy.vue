@@ -25,29 +25,50 @@
         <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
           {{ servicesHeading.title || 'Манай мэргэжлийн чиглэлүүд' }}
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div 
             v-for="(service, index) in consultancyCards" 
             :key="service.title"
-            class="card p-8 group"
+            class="card p-0 overflow-hidden group"
           >
-            <div class="text-5xl mb-6">{{ getConsultancyIcon(index) }}</div>
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
-              {{ service.title }}
-            </h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              {{ service.subtitle || '' }}
-            </p>
-            <ul class="space-y-2">
-              <li 
-                v-for="item in service.descriptionList" 
-                :key="item"
-                class="flex items-start gap-3"
-              >
-                <span class="text-primary-500 font-bold">▸</span>
-                <span class="text-gray-600">{{ item }}</span>
-              </li>
-            </ul>
+            <!-- Image header with overlay design -->
+            <div class="relative h-56 bg-gray-100">
+              <div
+                v-if="service.img && service.img.trim()"
+                class="absolute inset-0"
+                :style="{ backgroundImage: `url(${service.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+              />
+              <div v-else class="absolute inset-0 flex items-center justify-center text-6xl">
+                {{ getConsultancyIcon(index) }}
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
+              <div class="absolute inset-x-0 bottom-0 p-5 text-white">
+                <h3 class="text-lg font-semibold">{{ service.title }}</h3>
+              </div>
+            </div>
+
+            <!-- Content body (dropdown) -->
+            <div class="p-4">
+              <p v-if="service.subtitle && service.subtitle.trim()" class="text-gray-600 mb-3 text-sm lg:text-base">
+                {{ service.subtitle }}
+              </p>
+              <details class="group/details">
+                <summary class="list-none flex items-center justify-between gap-2 cursor-pointer select-none py-2 px-3 rounded-md bg-gray-50 hover:bg-gray-100 text-gray-800 font-medium">
+                  <span>Дэлгэрэнгүй</span>
+                  <span class="transition-transform duration-200 group-open:rotate-180">▾</span>
+                </summary>
+                <ul class="mt-3 space-y-2 pl-1">
+                  <li 
+                    v-for="item in service.descriptionList" 
+                    :key="item"
+                    class="flex items-start gap-3 text-gray-700 text-sm leading-relaxed"
+                  >
+                    <span class="text-primary-600 mt-1">▸</span>
+                    <span>{{ item }}</span>
+                  </li>
+                </ul>
+              </details>
+            </div>
           </div>
         </div>
       </div>
@@ -58,6 +79,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load Consultancy page data
 const { data, loading, error } = useSheetData('Consultancy')
@@ -67,9 +89,11 @@ watch(data, (newData) => {
   console.log('📊 Consultancy page data:', newData)
 }, { immediate: true })
 
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and description)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'Зөвлөх үйлчилгээ',
     description: 'Манай техникийн зөвлөх үйлчилгээ нь таны компанийн хэрэгцээнд тохирсон цахилгаан болон автоматжуулалтын шийдлүүдийг санал болгож, техникийн асуудлуудад мэргэжлийн дэмжлэг үзүүлнэ.'
   }
@@ -83,17 +107,7 @@ const servicesHeading = computed(() => {
 })
 
 // Consultancy cards data
-const consultancyCards = computed(() => {
-  const cards = data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-  
-  // Process description field - split comma-separated values into arrays
-  return cards.map(card => ({
-    ...card,
-    descriptionList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
-  }))
-})
+const consultancyCards = computed(() => processed.value.cards)
 
 // Fallback icons for consultancy cards
 const consultancyIcons = ['🔌', '☀️', '⚡', '🛡️', '💡', '🔧', '📊', '⚙️']

@@ -62,7 +62,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
-import { convertGoogleDriveUrl } from '@/utils/imageUtils'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load OurWork page data
 const { data, loading, error } = useSheetData('OurWork')
@@ -72,9 +72,11 @@ watch(data, (newData) => {
   console.log('📊 OurWork page data:', newData)
 }, { immediate: true })
 
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and description)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'Гүйцэтгэсэн ажлууд, төслүүд',
     description: 'Манай багийн гүйцэтгэсэн техник инженерийн төслүүд, судалгааны ажлууд болон үйлчлүүлэгчдэдээ хүргэсэн үр дүнгүүдтэй танилцаарай.'
   }
@@ -88,18 +90,11 @@ const projectsHeading = computed(() => {
 })
 
 // Project cards data
-const projectCards = computed(() => {
-  const cards = data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-  
-  // Process description field and convert Google Drive URLs
-  return cards.map(card => ({
-    ...card,
-    img: card.img ? convertGoogleDriveUrl(card.img) : card.img,
-    tagsList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
-  }))
-})
+const projectCardsRaw = computed(() => processed.value.cards)
+const projectCards = computed(() => projectCardsRaw.value.map(card => ({
+  ...card,
+  tagsList: card.descriptionList
+})))
 
 // Fallback icons for project cards
 const projectIcons = ['⚙️', '⚡', '💧', '🔧', '📊', '📈', '🔍', '🏗️', '💡', '🔬', '📋', '⚙️']

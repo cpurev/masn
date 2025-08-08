@@ -28,7 +28,15 @@
             :key="course.title"
             class="card p-8 group"
           >
-            <div class="text-5xl mb-6">{{ getTrainingIcon(index) }}</div>
+            <div v-if="course.img && course.img.trim()" class="mb-6">
+              <img 
+                :src="course.img" 
+                :alt="course.title" 
+                class="w-full h-48 object-cover rounded-md" 
+                @error="($event.target as HTMLImageElement).style.display='none'"
+              />
+            </div>
+            <div v-else class="text-5xl mb-6">{{ getTrainingIcon(index) }}</div>
             <h3 class="text-xl font-semibold mb-4 text-gray-800 group-hover:text-primary-500 transition-colors duration-300">
               {{ course.title }}
             </h3>
@@ -56,6 +64,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
 import { useSheetData } from '@/composables/useSheetData'
+import { processStandardPageData } from '@/utils/standardPageData'
 
 // Load Training page data
 const { data, loading, error } = useSheetData('Training')
@@ -65,26 +74,18 @@ watch(data, (newData) => {
   console.log('📊 Training page data:', newData)
 }, { immediate: true })
 
+const processed = computed(() => processStandardPageData(data.value))
+
 // Hero section data (main title and description)
 const heroData = computed(() => {
-  return data.value.find(item => item.section === 'hero') || {
+  return processed.value.hero || {
     title: 'Сургалт',
     description: 'Мэргэжлийн чадварыг нэмэгдүүлж, шинэ технологийг эзэмшихэд тусламж үзүүлэх цогц сургалтын хөтөлбөрүүдээр таныг хангана. Манай сургалтууд нь практик туршлага болон онолын мэдлэгийг хослуулсан байдаг.'
   }
 })
 
 // Training cards data
-const trainingCards = computed(() => {
-  const cards = data.value
-    .filter(item => item.section === 'card')
-    .sort((a, b) => parseInt(a.order || '0') - parseInt(b.order || '0'))
-  
-  // Process description field - split comma-separated values into arrays
-  return cards.map(card => ({
-    ...card,
-    descriptionList: card.description ? card.description.split(',').map((item: string) => item.trim()) : []
-  }))
-})
+const trainingCards = computed(() => processed.value.cards)
 
 // Fallback icons for training cards
 const trainingIcons = ['🔬', '⚡', '💻', '🔧', '🏭', '📐', '⚡', '🎓']
